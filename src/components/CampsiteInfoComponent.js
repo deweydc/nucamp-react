@@ -5,13 +5,13 @@ import { Card, CardImg, CardText, CardBody, CardTitle } from 'reactstrap';
 export default class CampsiteInfo extends Component {
     constructor(props) {
         super(props);
-        this.state = {
-        };
+
     }
 
     renderCampsite(campsite) {
 
         return (
+
             <div className="col-md-5 m-1">
                 <Card>
                     <CardImg top src={campsite.image} alt={campsite.name} />
@@ -32,7 +32,9 @@ export default class CampsiteInfo extends Component {
                     {comments.map(comment =>
                         <div>
                             {comment.text}
-                            <p>-- {comment.author}, {new Intl.DateTimeFormat('en-US', { year: 'numeric', month: 'short', day: '2-digit'}).format(new Date(Date.parse(comment.date)))}</p>
+                            <p>
+                                -- {comment.author}, {new Intl.DateTimeFormat('en-US', { year: 'numeric', month: 'short', day: '2-digit' }).format(new Date(Date.parse(comment.date)))}
+                            </p>
                         </div>
                     )}
                 </div>
@@ -46,18 +48,18 @@ export default class CampsiteInfo extends Component {
 
 
 
-    render() {
-        return (
-            <div>
-                {
-                    this.props.campsite ?
+render() {
+    return (
+        <div>
+            {
+                this.props.campsite ?
                     <div className="row">
                         {this.renderCampsite(this.props.campsite)}
                         {this.renderComments(this.props.campsite.comments)}
                     </div>
                     : <div></div>
-                }
-            </div>
-        );
-    }
+            }
+        </div>
+    );
+}
 }
