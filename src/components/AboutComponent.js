@@ -12,8 +12,6 @@ function RenderPartners({ partner }) {
                         {partner.name}
                         {partner.description}
                     </Media>
-
-
                 </Media>
             </React.Fragment>
 
