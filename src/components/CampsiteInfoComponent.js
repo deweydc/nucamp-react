@@ -84,16 +84,17 @@ class CommentForm extends Component {
                 <Modal isOpen={this.state.isModalOpen} toggle={this.toggleModal}>
                     <ModalHeader toggle={this.toggleModal}>Submit Comment</ModalHeader>
                     <ModalBody>
-                        <LocalForm onSubmit={values => this.handleSubmit(values)}>                            <div className="form-group">
-                            <Label htmlFor="rating" id="rating">Rating</Label>
-                            <Control.select model=".rating" className="form-control">
-                                <option>1</option>
-                                <option>2</option>
-                                <option>3</option>
-                                <option>4</option>
-                                <option>5</option>
-                            </Control.select>
-                        </div>
+                        <LocalForm onSubmit={values => this.handleSubmit(values)}>
+                            <div className="form-group">
+                                <Label htmlFor="rating" id="rating">Rating</Label>
+                                <Control.select model=".rating" className="form-control">
+                                    <option>1</option>
+                                    <option>2</option>
+                                    <option>3</option>
+                                    <option>4</option>
+                                    <option>5</option>
+                                </Control.select>
+                            </div>
 
                             <div className="form-group">
                                 <Label htmlFor="author">Your Name</Label>
