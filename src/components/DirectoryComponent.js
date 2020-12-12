@@ -4,8 +4,7 @@ import { Link } from 'react-router-dom';
 import { Loading } from './LoadingComponent';
 import { baseUrl } from '../shared/baseUrl';
 
-
-function RenderDirectoryItem({ campsite }) {
+function RenderDirectoryItem({campsite}) {
     return (
         <Card>
             <Link to={`/directory/${campsite.id}`}>
@@ -17,7 +16,6 @@ function RenderDirectoryItem({ campsite }) {
         </Card>
     );
 }
-
 
 function Directory(props) {
 
@@ -42,14 +40,13 @@ function Directory(props) {
         return (
             <div className="container">
                 <div className="row">
-                    <div className='col'>
+                    <div className="col">
                         <h4>{props.campsites.errMess}</h4>
                     </div>
                 </div>
             </div>
         );
     }
-
     return (
         <div className="container">
             <div className="row">
@@ -67,8 +64,6 @@ function Directory(props) {
             </div>
         </div>
     );
-
 }
 
 export default Directory;
-

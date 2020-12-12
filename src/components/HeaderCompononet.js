@@ -5,6 +5,8 @@ import {
     Form, FormGroup, Input, Label
 } from 'reactstrap';
 import { NavLink } from 'react-router-dom';
+import { FadeTransform, Fade } from 'react-animation-components';
+import { TransitionGroup, CSSTransition } from 'react-transition-group';
 
 export default class Header extends Component {
 
@@ -46,40 +48,55 @@ export default class Header extends Component {
                 <Jumbotron fluid>
                     <div className="container">
                         <div className="row">
-                            <div className="col">
-                                <h1>Nucamp</h1>
-                                <h2>a better way to camp</h2>
-                            </div>
+                            <FadeTransform
+                                in
+                                transformProps={{
+                                    exitTransform: ('scale(0.5) translateY(-50%)')
+                                }}>
+                                <div className="col">
+                                    <h1>Nucamp</h1>
+                                    <h2>a better way to camp</h2>
+                                </div>
+                            </FadeTransform>
                         </div>
                     </div>
                 </Jumbotron>
+
+
+
                 <Navbar dark sticky="top" expand="md">
                     <div className="container">
                         <NavbarBrand className="mr-auto" href="/"><img src="/assets/images/logo.png" height="30" width="30" alt="NuCamp Logo" /></NavbarBrand>
                         <NavbarToggler onClick={this.toggleNav} />
                         <Collapse isOpen={this.state.isNavOpen} navbar>
-                            <Nav navbar>
-                                <NavItem>
-                                    <NavLink className="nav-link" to="/home">
-                                        <i className="fa fa-home fa-lg" /> Home
+                            <FadeTransform
+                                in
+                                transformProps={{
+                                    exitTransform: 'scale(0.5) translateY(50%)'
+                                }}>
+                                <Nav navbar>
+                                    <NavItem>
+                                        <NavLink className="nav-link" to="/home">
+                                            <i className="fa fa-home fa-lg" /> Home
                                     </NavLink>
-                                </NavItem>
-                                <NavItem>
-                                    <NavLink className="nav-link" to="/directory">
-                                        <i className="fa fa-list fa-lg" /> Directroy
+                                    </NavItem>
+                                    <NavItem>
+                                        <NavLink className="nav-link" to="/directory">
+                                            <i className="fa fa-list fa-lg" /> Directroy
                                     </NavLink>
-                                </NavItem>
-                                <NavItem>
-                                    <NavLink className="nav-link" to="/aboutus">
-                                        <i className="fa fa-info fa-lg" /> About
+                                    </NavItem>
+                                    <NavItem>
+                                        <NavLink className="nav-link" to="/aboutus">
+                                            <i className="fa fa-info fa-lg" /> About
                                     </NavLink>
-                                </NavItem>
-                                <NavItem>
-                                    <NavLink className="nav-link" to="/contactus">
-                                        <i className="fa fa-address-card fa-lg" /> Contact Us
+                                    </NavItem>
+                                    <NavItem>
+                                        <NavLink className="nav-link" to="/contactus">
+                                            <i className="fa fa-address-card fa-lg" /> Contact Us
                                     </NavLink>
-                                </NavItem>
-                            </Nav>
+                                    </NavItem>
+                                </Nav>
+                            </FadeTransform>
                             <span className="navebar-text ml-auto">
                                 <Button outline onClick={this.toggleModal}>
                                     <i className="fa fa-sign-in fa-lg" /> Login
@@ -88,6 +105,7 @@ export default class Header extends Component {
                         </Collapse>
                     </div>
                 </Navbar>
+
 
                 <Modal isOpen={this.state.isModalOpen} toggle={this.toggleModal}>
                     <ModalHeader toggle={this.toggleModal}>Login</ModalHeader>
